@@ -1,0 +1,11 @@
+def sum_of_digits(n):
+    # Basis: jika n adalah bilangan satu digit, kembalikan n
+    if n < 10:
+        return n
+    # Rekursif: jumlahkan digit terakhir dengan hasil rekursif dari bilangan tanpa digit terakhir
+    else:
+        return n % 10 + sum_of_digits(n // 10)
+
+# Contoh penggunaan
+number = 234
+print(sum_of_digits(number))  # Output: 9 (karena 2 + 3 + 4 = 9)
