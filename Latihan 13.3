@@ -1,0 +1,17 @@
+def sum_odd_series(n):
+    # Basis: jika n kurang dari 1, kembalikan 0 karena tidak ada bilangan ganjil yang lebih kecil dari 1
+    if n < 1:
+        return 0
+    # Basis: jika n adalah 1, kembalikan 1 karena hanya ada satu bilangan ganjil yaitu 1
+    elif n == 1:
+        return 1
+    # Jika n adalah bilangan ganjil, tambahkan n dengan hasil rekursif dari n-2
+    elif n % 2 != 0:
+        return n + sum_odd_series(n - 2)
+    # Jika n adalah bilangan genap, panggil fungsi rekursif dengan n-1 untuk mengabaikan bilangan genap
+    else:
+        return sum_odd_series(n - 1)
+
+# Contoh penggunaan
+n = 9
+print(sum_odd_series(n))  # Output: 25 (karena 1 + 3 + 5 + 7 + 9 = 25)
