@@ -1,0 +1,12 @@
+def combination(n, k):
+    # Basis kasus
+    if k == 0 or k == n:
+        return 1
+    # Rekursif
+    else:
+        return combination(n-1, k-1) + combination(n-1, k)
+
+# Penggunaan
+n = 5
+k = 2
+print(combination(n, k))  # Output: 10 (karena 5C2 = 10)
