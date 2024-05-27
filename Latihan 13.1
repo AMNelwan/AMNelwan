@@ -1,0 +1,28 @@
+import math
+
+def is_prime_recursive(n, divisor=None):
+    # Basis kasus: bilangan kurang dari atau sama dengan 1 bukan bilangan prima
+    if n <= 1:
+        return False
+    
+    # Jika divisor belum diinisialisasi, setel ke akar kuadrat dari n
+    if divisor is None:
+        divisor = int(math.sqrt(n))
+    
+    # Basis kasus: jika divisor mencapai 1 dan tidak ada pembagi ditemukan, maka n adalah bilangan prima
+    if divisor == 1:
+        return True
+    
+    # Jika n habis dibagi oleh divisor, maka n bukan bilangan prima
+    if n % divisor == 0:
+        return False
+    
+    # Panggil fungsi rekursif dengan divisor yang berkurang 1
+    return is_prime_recursive(n, divisor - 1)
+
+# Contoh penggunaan:
+print(is_prime_recursive(29))  # Output: True
+print(is_prime_recursive(15))  # Output: False
+print(is_prime_recursive(2))   # Output: True
+print(is_prime_recursive(1))   # Output: False
+print(is_prime_recursive(0))   # Output: False
